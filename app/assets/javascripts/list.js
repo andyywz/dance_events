@@ -6,7 +6,7 @@ app.factory("Event", ["$resource", function ($resource) {
 
 angular.module("Filters", []).filter("checkmark", function () {
   return function (input) {
-    return input ? 'ok' : 'remove'
+    return input ? 'ok' : 'remove';
   };
 });
 
