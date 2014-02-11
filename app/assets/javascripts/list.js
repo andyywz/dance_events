@@ -1,0 +1,3 @@
+var ListCtrl = function ($scope) {
+
+}
