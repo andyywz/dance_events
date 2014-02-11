@@ -1,14 +1,59 @@
-<h1>List</h1>
+<h1>Swing Dance Events</h1>
 
 <div ng-controller="ListCtrl">
-  <form ng-submit="addEvent()">
-    <input type="text" ng-model="newEvent.name">
-    <input type="submit" value="Add">
+  <form ng-submit="addEvent()" role="form">
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input name="name" type="text" ng-model="newEvent.name" class="form-control">
+      </div>
+    
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input name="price" type="number" min="0" ng-model="newEvent.price" class="form-control">
+      </div>
+    
+      <div class="checkbox">
+        <label for="paid">
+          <input name="paid" type="checkbox" ng-model="newEvent.paid">
+          Paid
+        </label>
+      </div>
+    
+      <div class="checkbox">
+        <label for="housing">
+          <input name="housing" type="checkbox" ng-model="newEvent.housing">
+          Housing
+        </label>
+      </div>
+    
+      <div class="checkbox">
+        <label for="transport">
+          <input name="transport" type="checkbox" ng-model="newEvent.transport">
+          Transport
+        </label>
+      </div>
+    
+      <input type="submit" value="Add" class="btn btn-default">
+    </div>
   </form>
   
-  <ul>
-    <li ng-repeat="event in events">
-      {{event.name}}
-    </li>
-  </ul>
+  <div class="col-sm-9">
+    <table class="table table-hover table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Paid</th>
+        <th>Housing</th>
+        <th>Transport</th>
+      </tr>
+      <tr ng-repeat="event in events">
+        <td>{{event.name}}</td>
+        <td>{{event.price}}</td>
+        <td>{{event.paid}}</td>
+        <td>{{event.housing}}</td>
+        <td>{{event.transport}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
