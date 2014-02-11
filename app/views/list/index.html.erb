@@ -1,16 +1,41 @@
 <h1>Swing Dance Events</h1>
 
-<div ng-controller="ListCtrl">
+<div ng-controller="EventsCtrl">
+  <div class="col-sm-9 table-responsive">
+    <table class="table table-hover table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>P</th>
+        <th>H</th>
+        <th>T</th>
+      </tr>
+      <tr ng-repeat="event in events">
+        <td>{{event.name}}</td>
+        <td>{{event.price}}</td>
+        <td>
+          <span class="glyphicon glyphicon-{{event.paid | checkmark}}"></span>
+        </td>
+        <td>
+          <span class="glyphicon glyphicon-{{event.housing | checkmark}}"></span>
+        </td>
+        <td>
+          <span class="glyphicon glyphicon-{{event.transport | checkmark}}"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
   <form ng-submit="addEvent()" role="form">
     <div class="col-sm-3">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input name="name" type="text" ng-model="newEvent.name" class="form-control">
+        <label class="sr-only" for="name">Name</label>
+        <input name="name" type="text" ng-model="newEvent.name" class="form-control" placeholder="Name">
       </div>
     
       <div class="form-group">
-        <label for="price">Price</label>
-        <input name="price" type="number" min="0" ng-model="newEvent.price" class="form-control">
+        <label class="sr-only" for="price">Price</label>
+        <input name="price" type="number" min="0" ng-model="newEvent.price" class="form-control" placeholder="Price">
       </div>
     
       <div class="checkbox">
@@ -34,26 +59,7 @@
         </label>
       </div>
     
-      <input type="submit" value="Add" class="btn btn-default">
+      <input type="submit" value="Add" class="btn btn-primary">
     </div>
   </form>
-  
-  <div class="col-sm-9">
-    <table class="table table-hover table-bordered">
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Paid</th>
-        <th>Housing</th>
-        <th>Transport</th>
-      </tr>
-      <tr ng-repeat="event in events">
-        <td>{{event.name}}</td>
-        <td>{{event.price}}</td>
-        <td>{{event.paid}}</td>
-        <td>{{event.housing}}</td>
-        <td>{{event.transport}}</td>
-      </tr>
-    </table>
-  </div>
 </div>

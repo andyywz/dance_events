@@ -1,10 +1,16 @@
-var app = angular.module("List", ["ngResource"]);
+var app = angular.module("Event", ["ngResource", "Filters"]);
 
 app.factory("Event", ["$resource", function ($resource) {
   return $resource("/events/:id.json", {id: "@id"}, {update: {method: "PUT"}});
 }]);
 
-app.controller("ListCtrl", ["$scope", "Event", function ($scope, Event) {
+angular.module("Filters", []).filter("checkmark", function () {
+  return function (input) {
+    return input ? 'ok' : 'remove'
+  };
+});
+
+app.controller("EventsCtrl", ["$scope", "Event", function ($scope, Event) {
   $scope.events = Event.query();
   
   $scope.addEvent = function () {
