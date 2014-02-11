@@ -1,6 +1,6 @@
 # Dance Events Manager
 
-=====================================================
+==============================
 
 This app is a demo app that organizes different events (basically a more complex todo list).
 
