@@ -1,66 +1,22 @@
 <h1>Swing Dance Events</h1>
 
 <div ng-controller="EventsCtrl">
-  <div class="col-sm-9 table-responsive">
-    <input type="text" ng-model="search.name" class="form-control" placeholder="Search">
-    <table class="table table-hover table-bordered">
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>P</th>
-        <th>H</th>
-        <th>T</th>
-      </tr>
-      <tr ng-repeat="event in events | filter:search">
-        <td>{{event.name}}</td>
-        <td>{{event.price}}</td>
-        <td>
-          <span class="glyphicon glyphicon-{{event.paid | checkmark}}"></span>
-        </td>
-        <td>
-          <span class="glyphicon glyphicon-{{event.housing | checkmark}}"></span>
-        </td>
-        <td>
-          <span class="glyphicon glyphicon-{{event.transport | checkmark}}"></span>
-        </td>
-      </tr>
-    </table>
+  <div class="col-sm-9">
+    <div class="input-group">
+      <input type="text" ng-model="search.name" class="form-control">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">
+          <span class="glyphicon glyphicon-search"></span>
+          Search
+        </button>
+      </span>
+    </div>
+    
+    <div class="table-responsive">
+      <%= render "table" %>
+    </div>
   </div>
   
-  <form ng-submit="addEvent()" role="form">
-    <div class="col-sm-3">
-      <div class="form-group">
-        <label class="sr-only" for="name">Name</label>
-        <input name="name" type="text" ng-model="newEvent.name" class="form-control" placeholder="Name">
-      </div>
-    
-      <div class="form-group">
-        <label class="sr-only" for="price">Price</label>
-        <input name="price" type="number" min="0" ng-model="newEvent.price" class="form-control" placeholder="Price">
-      </div>
-    
-      <div class="checkbox">
-        <label for="paid">
-          <input name="paid" type="checkbox" ng-model="newEvent.paid">
-          Paid
-        </label>
-      </div>
-    
-      <div class="checkbox">
-        <label for="housing">
-          <input name="housing" type="checkbox" ng-model="newEvent.housing">
-          Housing
-        </label>
-      </div>
-    
-      <div class="checkbox">
-        <label for="transport">
-          <input name="transport" type="checkbox" ng-model="newEvent.transport">
-          Transport
-        </label>
-      </div>
-    
-      <input type="submit" value="Add" class="btn btn-primary">
-    </div>
-  </form>
+  <%= render "form" %>
+  <%= render "modal" %>
 </div>

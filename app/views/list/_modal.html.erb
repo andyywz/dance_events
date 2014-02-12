@@ -1,0 +1,42 @@
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="modalLabel">Modal Title</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <label class="sr-only" for="name">Name</label>
+            <input name="name" type="text" ng-model="editObject.name" class="form-control" value="{{editObject.name}}" placeholder="Name">
+          </div>
+
+          <div class="form-group">
+            <label class="sr-only" for="price">Price</label>
+            <input name="price" type="number" min="0" ng-model="editObject.price" value="{{editObject.price}}" class="form-control" placeholder="Price">
+          </div>
+
+          <div class="checkbox">
+            <input name="paid" type="checkbox" ng-model="editObject.paid" ng-checked="editObject.paid">
+            <label for="paid">Paid</label>
+          </div>
+
+          <div class="checkbox">
+            <input name="housing" type="checkbox" ng-model="editObject.housing" ng-checked="editObject.housing">
+            <label for="housing">Housing</label>
+          </div>
+
+          <div class="checkbox">
+            <input name="transport" type="checkbox" ng-model="editObject.transport" ng-checked="editObject.transport">
+            <label for="transport">Transport</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" type="button" ng-click="saveEvent(editObject)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
