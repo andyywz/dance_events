@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="modalLabel">Modal Title</h4>
+        <h4 class="modal-title" id="modalLabel">Edit Event Info</h4>
       </div>
       <div class="modal-body">
         <form role="form">
@@ -14,7 +14,10 @@
 
           <div class="form-group">
             <label class="sr-only" for="price">Price</label>
-            <input name="price" type="number" min="0" ng-model="editObject.price" value="{{editObject.price}}" class="form-control" placeholder="Price">
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input name="price" type="text" ng-model="editObject.price" value="{{editObject.price}}" class="form-control" placeholder="Price">
+            </div>
           </div>
 
           <div class="checkbox">
