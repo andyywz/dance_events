@@ -14,8 +14,8 @@ app.controller("EventsCtrl", ["$scope", "Event", function ($scope, Event) {
   $scope.events = Event.query();
   
   $scope.addEvent = function () {
-    var event = Event.save($scope.newEvent);
-    $scope.events.push(event);
+    var ev = Event.save($scope.newEvent);
+    $scope.events.push(ev);
     $scope.newEvent = {};
   };
   
