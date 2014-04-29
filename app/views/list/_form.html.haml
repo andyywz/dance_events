@@ -1,0 +1,26 @@
+%form{role: 'form', 'ng-submit' => 'addEvent()'}
+  .col-md-3
+    .form-group
+      %label.sr-only{for: 'name'} Name
+      %input.form-control{name: 'name', type: 'text', placeholder: 'Name', 'ng-model' => 'newEvent.name'}
+    
+    .form-group
+      %label.sr-only{for: 'price'} Price
+      .input-group
+        %span.input-group-addon $
+        %input.form-control{name: 'price', type: 'text', placeholder: 'Price', 'ng-model' => 'newEvent.price'}
+    
+    .checkbox
+      %input{name: 'paid', type: 'checkbox', 'ng-model' => 'newEvent.paid'}
+      %label{for: 'paid'} Paid
+    
+    .checkbox
+      %input{name: 'housing', type: 'checkbox', 'ng-model' => 'newEvent.housing'}
+      %label{for: 'housing'} Housing
+          
+    .checkbox
+      %input{name: 'transport', type: 'checkbox', 'ng-model' => 'newEvent.transport'}
+      %label{for: 'transport'} Transport
+    
+    %input.btn.btn-primary{type: 'submit', value: 'Add'}
+    
