@@ -14,8 +14,12 @@ app.controller("EventsCtrl", ["$scope", "Event", function ($scope, Event) {
   $scope.events = Event.query();
   
   $scope.addEvent = function () {
-    var event = Event.save($scope.newEvent);
-    $scope.events.push(event);
+    if ($scope.newEvent) {
+      var event = Event.save($scope.newEvent);
+      $scope.events.push(event);
+    } else {
+      alert('cant leave blank')
+    }
     $scope.newEvent = {};
   };
   
