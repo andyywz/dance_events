@@ -1,0 +1,29 @@
+#modal.modal.fade{'aria-hidden' => 'true', 'aria-labelledby' => 'modalLabel', role: 'dialog', tabindex: '-1'}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'modal', type: 'button'} &times;
+        %h4#modalLabel.modal-title Edit Event Info
+      .modal-body
+        %form{role: 'form'}
+          .form-group
+            %label.sr-only{for: 'name'} Name
+            %input.form-control{name: 'name', 'ng-model' => 'editObject.name', placeholder: 'Name', type: 'text', value: '{{editObject.name}}'}
+          .form-group
+            %label.sr-only{for: 'price'} Price
+            .input-group
+              %span.input-group-addon $
+              %input.form-control{name: 'price', 'ng-model' => 'editObject.price', placeholder: 'Price', type: 'text', value: '{{editObject.price}}'}
+          .checkbox
+            %input{name: 'paid', 'ng-checked' => 'editObject.paid', 'ng-model' => 'editObject.paid', type: 'checkbox'}
+            %label{for: 'paid'} Paid
+          .checkbox
+            %input{name: 'housing', 'ng-checked' => 'editObject.housing', 'ng-model' => 'editObject.housing', type: 'checkbox'}
+            %label{for: 'housing'} Housing
+          .checkbox
+            %input{name: 'transport', 'ng-checked' => 'editObject.transport', 'ng-model' => 'editObject.transport', type: 'checkbox'}
+            %label{for: 'transport'} Transport
+      .modal-footer
+        %button.btn.btn-default{'data-dismiss' => 'modal', type: 'button'} Close
+        %button.btn.btn-primary{'ng-click' => 'saveEvent(editObject)', type: 'button'} Save changes
+        
