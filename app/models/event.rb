@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
   attr_accessible :housing, :name, :paid, :price, :transport
-  validate :name, presence: true
+  
+  validates :name, presence: true, uniqueness: true
 end
